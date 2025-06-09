@@ -51,7 +51,9 @@ public class ChessMatch {
 	}
 	
 	private void validateTargetPosition(Position source, Position target) {
-		
+		if (!board.piece(source).possibleMove(target)) {
+			trhow new chessException("The chosen piece can't move to the target position");
+		}
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
